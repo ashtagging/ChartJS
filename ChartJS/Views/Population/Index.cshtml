@@ -1,0 +1,86 @@
+﻿@page
+@model ChartJS.Views.Population.IndexModel
+@{
+}
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Population Controller</h1>
+<h1>Yorkshire Population Example Charts</h1>
+<div class="continue"></div>
+<div class="graph-container" id="yorkshire-pop">
+    <canvas id="yorkshire-pop-bar-chart">
+    </canvas>
+    <canvas id="yorkshire-pop-pie-chart">
+    </canvas>
+    <canvas id="yorkshire-pop-pie-chart">
+    </canvas>
+    <canvas id="yorkshire-pop-doughnut-chart">
+    </canvas>
+</div>
+
+<script>
+
+    $(".continue").html("Next Step...")
+
+    // Data taken from www.citypopulation.de/en/uk/yorkshireandthehumber
+    const popBarChart = document.getElementById('yorkshire-pop-bar-chart');
+    const popPieChart = document.getElementById('yorkshire-pop-pie-chart');
+    //const popDoughnutChart = $('#yorkshire-pop-doughnut-chart');
+
+    var labelsArray = [
+        "Sheffield",
+        "Leeds",
+        "Bradford",
+        "Kingston upon Hull",
+        "Huddersfield",
+        "York",
+        "Doncaster",
+        "Wakefield",
+        "Rotherham",
+        "Barnsley",
+    ];
+
+    var dataArray = [
+        525142, 515947, 370185, 295179, 167534, 156135, 113566, 109766,
+        109675, 96888,
+    ];
+
+    new Chart(popBarChart, {
+        type: 'bar', //bar, horinzontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: labelsArray,
+            datasets: [{
+                label: "Population",
+                data: dataArray,
+            }],
+        },
+        options: {},
+    });
+
+    new Chart(popPieChart, {
+        type: 'pie',
+        data: {
+            labels: labelsArray,
+            datasets: [{
+                label: "Population",
+                data: dataArray,
+            }],
+        },
+        options: {},
+    });
+
+    new Chart(popDoughnutChart, {
+        type: 'doughnut',
+        data: {
+            labels: labelsArray,
+            datasets: [{
+                label: "Population",
+                data: dataArray,
+            }],
+        },
+        options: {},
+    });
+</script>
