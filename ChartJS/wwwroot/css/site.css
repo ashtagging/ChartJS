@@ -17,7 +17,9 @@ body {
   margin-bottom: 60px;
 }
 
-canvas {
-    height: 300px;
-    width: 300px;
+.graph-container {
+    display: flex;
+    padding: 30px;
+    height: 600px;
+    width: 800px;
 }

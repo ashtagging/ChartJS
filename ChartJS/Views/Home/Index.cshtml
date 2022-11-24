@@ -5,18 +5,15 @@
 <h1> Home Controller</h1>
 <h1>Yorkshire Population Example Charts</h1>
 <div class="continue"></div>
-<div class="graph-container" id="yorkshire-pop">
-    <canvas id="yorkshire-pop-bar-chart">
-
-    </canvas>
-    <canvas id="yorkshire-pop-pie-chart">
-
-    </canvas>
-    <canvas id="yorkshire-pop-pie-chart">
-
-    </canvas>
-    <canvas id="yorkshire-pop-doughnut-chart">
-    </canvas>
+<div class="graph-wrapper" id="yorkshire-pop">
+    <div class="graph-container">
+        <canvas id="yorkshire-pop-bar-chart">
+        </canvas>
+    </div>
+    <div class="graph-container">
+        <canvas id="yorkshire-pop-pie-chart">
+        </canvas>
+    </div>
 </div>
 
 <script>
@@ -25,19 +22,21 @@
     };
 
     $.ajax({
-        url: 'https://api.carbonintensity.org.uk/intensity',
+        url: 'https://cryptingup.com/api/assets',
         method: 'get',
-
         headers: headers,
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             console.log(JSON.stringify(data));
         }
     })
 
-   // Data taken from www.citypopulation.de/en/uk/yorkshireandthehumber
+    // Data taken from www.citypopulation.de/en/uk/yorkshireandthehumber
     const popBarChart = document.getElementById('yorkshire-pop-bar-chart');
     const popPieChart = document.getElementById('yorkshire-pop-pie-chart');
-    //const popDoughnutChart = $('#yorkshire-pop-doughnut-chart');
+    // const popDoughnutChart = $('#yorkshire-pop-doughnut-chart');
 
     var labelsArray = [
         "Sheffield",
