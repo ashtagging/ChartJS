@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h1> Home Controller</h1>
 <h1>Yorkshire Population Example Charts</h1>
 <div class="continue"></div>
 <div class="graph-container" id="yorkshire-pop">
@@ -19,8 +20,19 @@
 </div>
 
 <script>
+    var headers = {
+        'Accept': 'application/json'
+    };
 
-    $(".continue").html("Next Step...")
+    $.ajax({
+        url: 'https://api.carbonintensity.org.uk/intensity',
+        method: 'get',
+
+        headers: headers,
+        success: function (data) {
+            console.log(JSON.stringify(data));
+        }
+    })
 
    // Data taken from www.citypopulation.de/en/uk/yorkshireandthehumber
     const popBarChart = document.getElementById('yorkshire-pop-bar-chart');
