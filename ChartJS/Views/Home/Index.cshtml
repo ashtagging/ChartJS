@@ -36,7 +36,6 @@
     // Data taken from www.citypopulation.de/en/uk/yorkshireandthehumber
     const popBarChart = document.getElementById('yorkshire-pop-bar-chart');
     const popPieChart = document.getElementById('yorkshire-pop-pie-chart');
-    // const popDoughnutChart = $('#yorkshire-pop-doughnut-chart');
 
     var labelsArray = [
         "Sheffield",
@@ -70,18 +69,6 @@
 
     new Chart(popPieChart, {
         type: 'pie',
-        data: {
-            labels: labelsArray,
-            datasets: [{
-                label: "Population",
-                data: dataArray,
-            }],
-        },
-        options: {},
-    });
-
-    new Chart(popDoughnutChart, {
-        type: 'doughnut',
         data: {
             labels: labelsArray,
             datasets: [{

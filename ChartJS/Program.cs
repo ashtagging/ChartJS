@@ -1,7 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "https://cryptingup.com";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("https://cryptingup.com/",
+                                              "http://www.contoso.com");
+                      });
+});
 
 var app = builder.Build();
 
