@@ -1,0 +1,125 @@
+﻿<h1>Bubble Chart</h1>
+
+<div class="graph-container">
+    <canvas id="bubble-chart"></canvas>
+</div>
+
+<script>
+    const bubbleChartCtx = document.getElementById('bubble-chart');
+
+    const data = {
+        datasets: [{
+            label: "Dist A",
+            data: [{
+                x: 15,
+                y: 65,
+                r: 15
+            }, {
+                x: 70,
+                y: 60,
+                r: 20
+            }],
+            backgroundColor: 'rgb(2503, 134, 093)'
+        }, {
+            label: 'Dist B',
+            data: [{
+                x: 20,
+                y: 30,
+                r: 15
+            }, {
+                x: 40,
+                y: 10,
+                r: 10
+            }],
+            backgroundColor: 'rgb(255, 99, 132)'
+        }, {
+            label: 'Dist C',
+            data: [{
+                x: 30,
+                y: 20,
+                r: 10
+            }, {
+                x: 5,
+                y: 5,
+                r: 5
+            }],
+            backgroundColor: 'rgb(155, 199, 32)'
+        }, {
+            label: 'Dist D',
+            data: [{
+                x: 35,
+                y: 55,
+                r: 15
+            }, {
+                x: 75,
+                y: 15,
+                r: 15
+            }],
+            backgroundColor: 'rgb(65, 69, 90)'
+        }, {
+            label: 'Dist E',
+            data: [{
+                x: 80,
+                y: 80,
+                r: 30
+            }, {
+                x: 25,
+                y: 95,
+                r: 10
+            }],
+            backgroundColor: 'rgb(175, 45, 32)'
+        }, {
+            label: 'Dist F',
+            data: [{
+                x: 50,
+                y: 60,
+                r: 20
+            }, {
+                x: 80,
+                y: 15,
+                r: 10
+            }],
+            backgroundColor: 'rgb(66, 145, 202)'
+        }
+        ]
+    };
+
+    const config = {
+        type: 'bubble',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'DPAD Bubble Chart'
+                },
+            },
+            scales: {
+                y: {
+                    max: 100,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Current Performance KPIs'
+                    }
+                },
+                x:{
+                    max: 100,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Qualifying Capabilites'
+                    }
+                }
+            }
+        }
+    };
+ 
+    const bubbleChart = new Chart(
+        bubbleChartCtx, 
+        config
+    );
+
+    console.log(bubbleChart.options.scales);
+
+</script>
